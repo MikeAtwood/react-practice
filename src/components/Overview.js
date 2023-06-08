@@ -1,5 +1,19 @@
 import React, { Component } from 'react'
 
+class AddTask extends Component {
+    state = {
+        newTask: ''
+    }
+    render() {
+        return (
+            <div>
+                <input placeholder='Add new task'></input>
+                <button>Add</button>
+            </div>
+        )
+    }
+}
+
 class Overview extends Component {
     state = {
         tasks: []
@@ -17,8 +31,7 @@ class Overview extends Component {
         return (
             <div>
                 <h1>Tasks To Do</h1>
-                <input placeholder='Add new task'></input>
-                <button>Add</button>
+                <AddTask />
             </div>
         )
     }
