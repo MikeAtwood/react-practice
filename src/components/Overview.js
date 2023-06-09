@@ -36,9 +36,9 @@ class Overview extends Component {
         this.state = {
             tasks: []
         }
-        this.handleAddTask = this.handleAddTask.bind(this)
+        //this.handleAddTask = this.handleAddTask.bind(this)
     }   
-    handleAddTask(newTask) {
+    handleAddTask = (newTask) => {
         this.setState(prevState => ({
             tasks: [...prevState.tasks, newTask]
         }))
