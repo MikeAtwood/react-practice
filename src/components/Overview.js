@@ -53,7 +53,31 @@ render() {
             <AddTask onAddTask={this.handleAddTask} />
             <ol>
                 {tasks.map((task, index) => (
-                    <li key={index}>{task}</li>
+                    <li 
+                    key={index}
+                    onClick={() => {
+                        this.setState({ editingIndex: index })
+                    }}
+                    >
+                        {this.state.editingIndex === index ? (
+                            <input
+                            value={task}
+                            onChange={e => {
+                                const newTasks = [...tasks]
+                                newTasks[index] = e.target.value
+                                this.setState({ tasks: newTasks })
+                            }}
+                            onBlur={() => {
+                                this.setState({ editingIndex: -1 })
+                            }}
+                            autoFocus
+                            />
+                        ) : ( 
+                            <>
+                        {task}
+                        </>
+                        )}
+                        </li>
                 ))}
             </ol>
         </div>
